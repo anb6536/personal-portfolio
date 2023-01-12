@@ -9,15 +9,6 @@
     transition-duration: 0.3s;
 }
 
-html, body{
-    scroll-snap-type: y mandatory;
-}
-
-.child {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
-
 .head-div {
     background: black;
     display: flex;
@@ -30,10 +21,13 @@ html, body{
 .content-div-1 {
     background: rgb(136, 136, 136);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: center; */
     height: 100vh;
+    overflow-x: hidden;
+    position: sticky;
+    top: 0;
 }
 
 .content-div-2 {
@@ -93,4 +87,12 @@ h1 {
         opacity: 0;
         transform: scale(0.8);
     }
+}
+
+.card-0, .card-1, .card-2 {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
