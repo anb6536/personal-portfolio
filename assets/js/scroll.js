@@ -2,6 +2,7 @@
 (function(){
     init();
 
+    var pastScroll = 0;
     var g_containerInViewport;
     function init(){
         setStickyContainersSize();
@@ -9,7 +10,7 @@
     }
 
     function bindEvents(){
-        window.addEventListener("wheel", wheelHandler);        
+        window.addEventListener("scroll", wheelHandler);        
     }
 
     function setStickyContainersSize(){
@@ -25,12 +26,13 @@
     }
 
     function wheelHandler(evt){
-        
+        console.log(pastScroll);
         const containerInViewPort = Array.from(document.querySelectorAll('.sticky-container')).filter(function(container){
             return isElementInViewport(container);
         })[0];
 
         if(!containerInViewPort){
+            pastScroll = window.scrollY;
             return;
         }
 
@@ -39,7 +41,8 @@
         let g_canScrollHorizontally = isPlaceHolderBelowTop && isPlaceHolderBelowBottom;
 
         if(g_canScrollHorizontally){
-            containerInViewPort.querySelector('.content-div-1').scrollLeft += evt.deltaY;
+            containerInViewPort.querySelector('.content-div-1').scrollLeft += window.scrollY - pastScroll;
         }
+        pastScroll = window.scrollY;
     }
 })();
