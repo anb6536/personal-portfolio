@@ -112,6 +112,10 @@
     }
 }
 
+#hover-text {
+    color: rgb(83, 83, 83);
+}
+
 .head-div {
     background: black;
     display: flex;
@@ -147,10 +151,12 @@
 
 .hovered {
     font-weight: 900;
+    color: rgb(255, 255, 255);
 }
 
 .hovered-adjacent {
     font-weight: 500;
+    color: rgb(188, 188, 188);
 }
 
 @keyframes animate {

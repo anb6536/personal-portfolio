@@ -26,7 +26,6 @@
     }
 
     function wheelHandler(evt){
-        console.log(pastScroll);
         const containerInViewPort = Array.from(document.querySelectorAll('.sticky-container')).filter(function(container){
             return isElementInViewport(container);
         })[0];
